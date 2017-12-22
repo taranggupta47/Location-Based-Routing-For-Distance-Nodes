@@ -1,0 +1,140 @@
+// Decompiled by DJ v3.7.7.81 Copyright 2004 Atanas Neshkov  Date: 11/25/2006 8:20:26 AM
+// Home Page : http://members.fortunecity.com/neshkov/dj.html  - Check often for new version!
+// Decompiler options: packimports(3) 
+// Source File Name:   Main_Server.java
+
+import java.io.*;
+import java.net.*;
+import java.util.TreeSet;
+
+class Main_Server
+{
+
+    Main_Server()
+    {
+    }
+
+    public static void main(String args[])
+    {
+        try
+        {
+            ServerSocket serversocket = new ServerSocket(8888);
+label0:
+            do
+            {
+                System.out.println("Waiting ");
+                Socket socket = serversocket.accept();
+                System.out.println("Connected ");
+                ObjectInputStream objectinputstream;
+                String s;
+                do
+                {
+                    java.io.InputStream inputstream = socket.getInputStream();
+                    java.io.OutputStream outputstream = socket.getOutputStream();
+                    ObjectOutputStream objectoutputstream = new ObjectOutputStream(outputstream);
+                    objectinputstream = new ObjectInputStream(inputstream);
+                    co = new Core();
+                    v = new TreeSet();
+                    System.out.println("B4 read ");
+                    s = (String)objectinputstream.readObject();
+                    System.out.println((new StringBuilder()).append("OBJECTXxxxxxxxxxxxxx").append(s).toString());
+                    if(!s.equals("request"))
+                        continue;
+                    System.out.println("Req Rec");
+                    Core _tmp = co;
+                    addr = Core.findCore();
+                    System.out.println((new StringBuilder()).append("Core Address : ").append(addr).toString());
+                    objectoutputstream.writeObject(addr);
+                    continue label0;
+                } while(!s.equals("file"));
+                System.out.println("File transfer is requested ");
+                source = (String)objectinputstream.readObject();
+                destination = (String)objectinputstream.readObject();
+                System.out.println((new StringBuilder()).append("Source :").append(source).toString());
+                System.out.println((new StringBuilder()).append("Destination :").append(destination).toString());
+                FileWriter filewriter = new FileWriter("encc.txt");
+                BufferedWriter bufferedwriter = new BufferedWriter(filewriter);
+                pass = (String)objectinputstream.readObject();
+                Pack pack = new Pack();
+                Pack _tmp1 = pack;
+                Pack.Pack1(pass);
+                System.out.println((new StringBuilder()).append("The Enc File is ").append(pass).toString());
+                bufferedwriter.write(pass, 0, pass.length());
+                bufferedwriter.flush();
+                ff = new File("encc.txt");
+                String s1 = InetAddress.getLocalHost().getHostName();
+                System.out.println((new StringBuilder()).append("The local address is :").append(s1).toString());
+                System.out.println((new StringBuilder()).append("The destined address is ddddddddddd:").append(destination).toString());
+                if(destination.equalsIgnoreCase(s1))
+                {
+                    System.out.println("Destination is myself*******************************gf ");
+                    new Destination();
+                    Destination.ServSoc(pass, source, destination);
+                    System.out.println("Destination is myself ");
+                    bool = true;
+                } else
+                {
+                    if(!bool)
+                    {
+                        System.out.println("Boolean  ");
+                        BufferedReader bufferedreader = new BufferedReader(new FileReader("f2.txt"));
+                        do
+                        {
+                            if((sst = bufferedreader.readLine()) == null)
+                                break;
+                            try
+                            {
+                                if(!destination.equals(sst))
+                                    continue;
+                                Core _tmp2 = co;
+                                Core.sendFileToCore(destination, source, destination, pass);
+                                System.out.println("Success to destination ");
+                                boolea = true;
+                                break;
+                            }
+                            catch(Exception exception1)
+                            {
+                                System.out.println("Error in finding the core ");
+                            }
+                        } while(true);
+                    }
+                    if(!boolea && !bool)
+                    {
+                        re = new ReCore();
+                        ReCore _tmp3 = re;
+                        neaddr = ReCore.reqCore();
+                        Core _tmp4 = co;
+                        Core.sendFileToCore(neaddr, source, destination, pass);
+                    }
+                }
+            } while(true);
+        }
+        catch(IOException ioexception)
+        {
+            System.out.println(ioexception);
+        }
+        catch(Exception exception)
+        {
+            System.out.println(exception);
+        }
+    }
+
+    static String query = "";
+    static String str = "";
+    static String addr = "";
+    static String source = "";
+    static String destination = "";
+    static String f = "";
+    static TreeSet v;
+    static File ff;
+    static InetAddress in;
+    static String sst = "";
+    static String b = "";
+    static boolean bool = false;
+    static boolean boolea = false;
+    static ReCore re;
+    static String neaddr = "";
+    static Core co;
+    static String pass = "";
+
+}

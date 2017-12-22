@@ -1,0 +1,50 @@
+// Decompiled by DJ v3.7.7.81 Copyright 2004 Atanas Neshkov  Date: 6/21/05 1:57:40 AM
+// Home Page : http://members.fortunecity.com/neshkov/dj.html  - Check often for new version!
+// Decompiler options: packimports(3) 
+// Source File Name:   Pack.java
+
+import java.io.PrintStream;
+
+class Pack
+{
+
+    Pack()
+    {
+    }
+
+    public static String Pack1(String s)
+    {
+        int i = s.length();
+        System.out.println("Length:" + i);
+        int j = i / 16;
+        System.out.println("Length1:" + j);
+        int k = i % 16;
+        int l = 16;
+        System.out.println("Length2:" + k);
+        int i1 = 0;
+        for(int j1 = 0; j1 < i; j1 += 16)
+            if(l <= i - k)
+            {
+                String s1 = s.substring(j1, l);
+                subs1 = s1 + "\n";
+                sub = sub + subs1;
+                i1++;
+                l += 16;
+            }
+
+        if(k > 0)
+        {
+            System.out.println("inside ");
+            int k1 = i - i1 * 16;
+            System.out.println("Value:" + k1);
+            subs1 = s.substring(i1 * 16, i);
+            sub = sub + subs1;
+        }
+        System.out.println("Packets:" + sub);
+        return sub;
+    }
+
+    static String subs1;
+    static String sub = "";
+
+}

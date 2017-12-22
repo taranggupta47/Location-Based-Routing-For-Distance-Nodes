@@ -1,0 +1,287 @@
+// Decompiled by DJ v3.7.7.81 Copyright 2004 Atanas Neshkov  Date: 2/11/2006 10:25:34 AM
+// Home Page : http://members.fortunecity.com/neshkov/dj.html  - Check often for new version!
+// Decompiler options: packimports(3) 
+// Source File Name:   Destination.java
+
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.PrintStream;
+import javax.swing.*;
+
+public class Destination extends JFrame
+    implements ActionListener
+{
+
+    public Destination()
+    {
+        super("Transaction");
+        setSize(500, 530);
+        Container container = getContentPane();
+        JPanel jpanel = new JPanel();
+        jpanel.setLayout(null);
+        jl = new JLabel("Sender Name ", 2);
+        jL = new JLabel("Receiver Name ", 2);
+        tfd = new JTextField(15);
+        tfd1 = new JTextField(15);
+        tf = new JTextArea(20, 40);
+        sp = new JScrollPane(tf);
+        jb = new JButton("OPEN");
+        jpanel.add(jl);
+        jpanel.add(tfd);
+        jpanel.add(jL);
+        jpanel.add(tfd1);
+        jpanel.add(sp);
+        jpanel.add(jb);
+        jl.setBounds(25, 10, 150, 25);
+        tfd.setBounds(150, 10, 150, 25);
+        jL.setBounds(25, 40, 150, 25);
+        tfd1.setBounds(150, 40, 150, 25);
+        sp.setBounds(25, 70, 450, 350);
+        jb.setBounds(220, 425, 75, 25);
+        jpanel.setVisible(true);
+        JPanel jpanel1 = new JPanel();
+        jpanel1.setLayout(null);
+        jl1 = new JLabel("Sender Name ", 2);
+        jl2 = new JLabel("Receiver Name ", 2);
+        tf1 = new JTextField(15);
+        tf2 = new JTextField(15);
+        ta1 = new JTextArea(20, 40);
+        sp1 = new JScrollPane(ta1);
+        jb2 = new JButton("Retrive");
+        jl1.setBounds(25, 10, 150, 25);
+        tf1.setBounds(150, 10, 150, 25);
+        jl2.setBounds(25, 40, 150, 25);
+        tf2.setBounds(150, 40, 150, 25);
+        sp1.setBounds(25, 70, 450, 350);
+        jb2.setBounds(220, 425, 75, 25);
+        jb.addActionListener(this);
+        jb2.addActionListener(this);
+        jpanel1.add(jl1);
+        jpanel1.add(tf1);
+        jpanel1.add(jl2);
+        jpanel1.add(tf2);
+        jpanel1.add(sp1);
+        jpanel1.add(jb2);
+        jpanel1.setVisible(true);
+        tp = new JTabbedPane();
+        tp.addTab("Message", null, jpanel, "Retrive the Message here");
+        tp.addTab("File", null, jpanel1, "Retrive the File Name here");
+        container.add(tp);
+        setDefaultCloseOperation(3);
+        setVisible(true);
+        setResizable(false);
+    }
+
+    public static void main(String args[])
+        throws Exception
+    {
+        Destination destination = new Destination();
+    }
+
+    public static void ServSoc(String s, String s1, String s2)
+    {
+        try
+        {
+            char ac[] = new char[50000];
+            char ac1[] = new char[9];
+            char ac2[] = new char[5];
+            String s3 = new String();
+            String s4 = new String();
+            boolean flag = false;
+            int i1 = 1;
+            byte byte0 = 8;
+            int k1 = 0;
+            boolean flag1 = false;
+            boolean flag2 = false;
+            String s5 = "";
+            String s6 = "";
+            str6 = s1;
+            str61 = s2;
+            System.out.println("Enter the Hex-Code:");
+            System.out.println(s);
+            int i2 = s.length();
+            System.out.print("String Length:");
+            System.out.println(i2);
+            for(int i = 0; i < i2; i++)
+            {
+                char c = s.charAt(i);
+                ac[i] = c;
+                if(ac[i] == 'A')
+                {
+                    s5 = "1010";
+                    String s7 = s5;
+                } else
+                if(ac[i] == 'B')
+                {
+                    s5 = "1011";
+                    String s8 = s5;
+                } else
+                if(ac[i] == 'C')
+                {
+                    s5 = "1100";
+                    String s9 = s5;
+                } else
+                if(ac[i] == 'D')
+                {
+                    s5 = "1101";
+                    String s10 = s5;
+                } else
+                if(ac[i] == 'E')
+                {
+                    s5 = "1110";
+                    String s11 = s5;
+                } else
+                if(ac[i] == 'F')
+                {
+                    s5 = "1111";
+                    String s12 = s5;
+                } else
+                if(ac[i] == '0')
+                {
+                    s5 = "0000";
+                    String s13 = s5;
+                } else
+                if(ac[i] == '1')
+                {
+                    s5 = "0001";
+                    String s14 = s5;
+                } else
+                if(ac[i] == '2')
+                {
+                    s5 = "0010";
+                    String s15 = s5;
+                } else
+                if(ac[i] == '3')
+                {
+                    s5 = "0011";
+                    String s16 = s5;
+                } else
+                if(ac[i] == '4')
+                {
+                    s5 = "0100";
+                    String s17 = s5;
+                } else
+                if(ac[i] == '5')
+                {
+                    s5 = "0101";
+                    String s18 = s5;
+                } else
+                if(ac[i] == '6')
+                {
+                    s5 = "0110";
+                    String s19 = s5;
+                } else
+                if(ac[i] == '7')
+                {
+                    s5 = "0111";
+                    String s20 = s5;
+                } else
+                if(ac[i] == '8')
+                    s5 = "1000";
+                else
+                if(ac[i] == '9')
+                    s5 = "1001";
+                s3 = s3 + s5;
+            }
+
+            char ac3[] = s3.toCharArray();
+            String s21 = s3.toString();
+            System.out.print(s21);
+            System.out.println("Length:" + i2);
+            try
+            {
+                if(i2 == 8)
+                {
+                    int j2 = i2;
+                    for(int k = j2 - 1; k >= 0; k--)
+                    {
+                        k1 += (ac3[k] - 48) * i1;
+                        y = y + k1;
+                        i1 *= 2;
+                    }
+
+                    System.out.print("\n");
+                    vj = vj + (char)k1;
+                } else
+                {
+                    for(int j = 0; j < 5000; j++)
+                    {
+                        int l1 = 0;
+                        int j1 = 1;
+                        int k2 = j * 8;
+                        for(int l = k2 + 7; l >= k2; l--)
+                        {
+                            l1 += (ac3[l] - 48) * j1;
+                            y = y + l1;
+                            j1 *= 2;
+                        }
+
+                        vj = vj + (char)l1;
+                    }
+
+                }
+            }
+            catch(Exception exception1) { }
+        }
+        catch(Exception exception)
+        {
+            System.out.println(exception);
+        }
+        System.out.println("the file content is :" + vj);
+        System.out.println("File Ends *********** ");
+        ta1.append(vj);
+    }
+
+    public void actionPerformed(ActionEvent actionevent)
+    {
+        if(actionevent.getSource() == jb2)
+        {
+            tf1.setText(str6);
+            tf2.setText(str61);
+            ta1.setText(vj);
+        } else
+        if(actionevent.getSource() == jb)
+        {
+            JOptionPane.showMessageDialog(null, "Signature are Verified", "Verify Sign", 0);
+            tfd.setText(str6);
+            tfd1.setText(str61);
+            tf.setText(vj);
+        }
+    }
+
+    JTabbedPane tp;
+    JLabel jl;
+    JLabel jl1;
+    JLabel jl2;
+    JLabel jL;
+    JButton jb;
+    JButton jb1;
+    JButton jb2;
+    JTextField tf1;
+    JTextField tf2;
+    JTextField tfd;
+    JTextField tfd1;
+    static JTextArea tf;
+    static JTextArea ta1;
+    JScrollPane sp;
+    JScrollPane sp1;
+    static String g1 = " ";
+    static String n;
+    static String n1;
+    static String n2;
+    static byte str[];
+    static byte realSig[];
+    static byte realSig1[];
+    static String y = "";
+    static String str6;
+    static String str61;
+    static String str2;
+    static String str12;
+    static String str13;
+    static String t;
+    static String st = "";
+    static String st1 = "";
+    static String vj = "";
+
+}
